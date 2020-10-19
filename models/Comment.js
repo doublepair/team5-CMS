@@ -1,8 +1,7 @@
 class Comment{
-    constructor(user, commentDate, commentBody){
-        this.user = user;
-        this.commentDate = commentDate;
-        this.commentBody = commentBody;
+    constructor(body, nickname){
+        this.body = body;
+        this.nickname = nickname;
     }
 
     //get, set

@@ -45,6 +45,14 @@
     margin-left: 0;
     }
 
+    .p{
+      color: cornsilk;
+    }
+
+    .h1{
+      color: cornsilk !important;
+    }
+
     @media (min-width: 768px) {
     #sidebar-wrapper {
         margin-left: 0;
@@ -75,7 +83,16 @@
 
 
 
+
 <body style="background-color: rgb(19, 19, 19);">
+
+    
+
+  
+
+      
+
+
 
     <div class="d-flex" id="wrapper">
 
@@ -89,12 +106,58 @@
             <a href="#" class="list-group-item list-group-item-action bg-dark" style="color:rgb(23, 212, 190);">Info</a>
           </div>
         </div>
+
+        
         <!-- /#sidebar-wrapper -->
     
         <!--CONTENT-->
         <div id="page-content-wrapper">
     
           <div class="container-fluid">
+
+            <h1>Il design è tutto da rifare...</h1>
+
+
+
+            <div class="row" id="articlesRow">
+              <div class="col-md-12 col-sm-6 px-2 my-1" id="articleContainer" style="display: none;">
+      
+                  <div class="card" id="first-article">
+      
+                      <header class="card-header"></header>
+      
+                      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+      
+                      <article class="card-body">
+                          <h5 class="card-title"></h5>
+                          <p class="card-text">
+                          </p>
+      
+                      </article>
+                      <footer class="p-2 text-right">
+      
+                          <a href="#" class="card-link" id="editArticle">edit</a>
+                          <!-- <div class="input-group mb-3">
+                              <input type="text" class="form-control comment-text" placeholder="Commenta"
+                                  aria-label="Commenta" aria-describedby="basic-addon2">
+                              <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary send-comment" type="button">invia</button>
+                              </div>
+                          </div> -->
+      
+                          <ul class="list-group list-group-flush comments-container">
+                              <!-- add dinamically 
+                                  <li class="list-group-item">Comment text</li>
+      
+                                  -->
+                          </ul>
+      
+                      </footer>
+                  </div>
+              </div>
+          </div>
+
+
         
           </div>
         </div>
