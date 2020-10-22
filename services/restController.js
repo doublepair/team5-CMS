@@ -1,3 +1,5 @@
+console.log("loaded RestController")
+
 class RestController{
 
     constructor(){}
@@ -6,7 +8,8 @@ class RestController{
         get(url, onSuccess, onError){
             $.get({
                 url: url,
-                success: onSuccess,
+                datatype: "json",
+                success: onSuccess
             })
         }
 

@@ -29,9 +29,7 @@ class ArticleController {
 
             this.articlesRow = $("#articlesRow"); 
             this.articleContainer = $("#articleContainer");
-            //this.articleEditor = da fare
-            // ...
-            // edit mode true
+            this.articleEditor = $("#editArticle");
             this.getArticles()
         }.bind(this));
 
@@ -45,7 +43,7 @@ class ArticleController {
 
     createArticleUI(article){
         var articleContainer = $("#articleContainer").clone();
-        articleContainer.css("display", block);
+        articleContainer.css("display", "block");
         articleContainer.attr("id", "");
         articleContainer.addClass("class", "articleContainer");
 
@@ -66,7 +64,7 @@ class ArticleController {
                 var article = data[id];
                 article.id = id;
                 console.log(article);
-                if(article.ispublic == true){
+                if(article.public == true){
                     this.createArticleUI(article);
                 }
             }
