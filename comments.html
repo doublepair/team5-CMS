@@ -66,6 +66,23 @@
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
     }
+
+    .card{
+      background-color: rgb(28, 28, 28);
+      color: rgb(167, 167, 167);
+    }
+
+    .modal-content{
+      background-color: rgb(28, 28, 28);
+      color: rgb(167, 167, 167);
+      
+    }
+
+    #confirmRemoveComment{
+      background-color: rgb(23, 212, 190);
+      color: rgb(19, 19, 19);
+    }
+
     }
     </style>
 </head>
@@ -121,7 +138,10 @@
                 
     
                     <article class="card-body">
-                      <a href="#" class="card-link" id="removeComment">remove</a>
+                      <!--confirmation modal button-->
+                      <button type="button" class="btn btn-primary" id="open-rm-modal" data-toggle="modal" data-target="#exampleModalCenter">
+                        remove
+                      </button>
                         <h5 class="card-title" id="belongsToArticle"><!--inserire con get su ID nome dell'articolo a cui appartiene il commento--></h5>  
                       
                         <h3 class="card-text" id = "username"></h3>
@@ -149,6 +169,26 @@
       </div>
       <!-- /#wrapper -->
 
+      <!-- Remove Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Rimuovi commento</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Sicuro di voler rimuovere il commento? Questa azione non può essere annullata.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+              <button type="button" class="btn btn-primary" id="confirmRemoveComment">Rimuovi</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     
 
