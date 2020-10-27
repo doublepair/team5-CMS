@@ -69,10 +69,10 @@
         margin-left: -15rem;
       }
 
-      #card {
-        background-color: rgb(28, 28, 28);
-        color: rgb(167, 167, 167);
-      }
+      .card{
+      background-color: rgb(28, 28, 28);
+      color: rgb(167, 167, 167);
+    }
 
     }
   </style>
@@ -188,22 +188,31 @@
           <!--NUOVA CARD ARTICOLI AHAHAHSDHASDA LOL -->
           <div class="col-md-12 col-sm-6 px-2 my-1" id="articleContainer" style="display: none;">
 
-            <div class="card text-white bg-dark mb-3" id="first-article">
+            <div class="card mb-3" id="first-article">
 
+              <div class="edit-button">
+                <button type="button" class="btn btn-primary" id="editMode" data-toggle="modal" data-target="#editArticleModal" style="float:right; background-color: rgb(23, 212, 190); color:rgb(28, 28, 28);">
+                  Edit
+                </button>
+              </div>
+
+              <h1>
               <header class="card-header">
+                <!--titolo articolo-->
+              </header></h1>
 
-              </header>
+              
+              <img class="card-img-top" src="./contents/img/bergamo.jpg" alt="Card image cap" width="300px" height="190px">
 
-              <img class="card-img-top" src="..." alt="Card image cap">
-
+              
               <article class="card-body">
-                <a href="#" class="card-link" id="editArticle">edit</a>
+                
                 <h5 class="card-title"></h5>
                 <p class="card-text">
                 </p>
 
               </article>
-              <footer class="p-2 text-right">
+              <footer class="p-2 text-right" id="footer-article-card">
 
                 <ul class="list-group list-group-flush comments-container">
 
@@ -232,6 +241,27 @@
   </div>
   <!-- /#wrapper -->
 
+
+  <!--Edit article modal-->
+    <div class="modal fade" id="editArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
