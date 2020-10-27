@@ -87,7 +87,7 @@ class ArticleController {
           console.log(article);
           //var articlesNumber = getNumArticles();
           //console.log(articlesNumber);
-          if (article.ispublic == true) {
+          if (article.public == true) {
             this.createArticleUI(article);
           }
         }
@@ -120,15 +120,16 @@ class ArticleController {
 
   getComments(){
       this.restController.get(
-          "http://localhost:3000/comments",
+          "http://localhost:3000/comments/5f8d91566386621e7aa7cc4d",
+          //"http://localhost:3000/articles/comments/",
           function (data, status, xhr) {
                 for (var id in data){
                     var comment = data[id];
                     comment.id = id;
                     console.log(comment)
-                    createCommentUI(comment);
+                    this.createCommentUI(comment);
                 }
-            }
+            }.bind(this)
       )
   }
 
