@@ -1,5 +1,5 @@
 console.log("loaded script index");
-
+express.static(__dirname + './contents');
 class ArticleController {
   constructor() {
     this.articles = [];
