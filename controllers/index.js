@@ -71,7 +71,7 @@ class ArticleController {
           }
           console.log(articlesCounter);
           return articlesCounter;
-        } 
+        }.bind(this) 
     )
 }
   
@@ -94,6 +94,12 @@ class ArticleController {
       }.bind(this)
     );
   }
+
+  deleteArticle() {
+    this.restController.delete(`http://localhost:3000/articles/:articleId`, function () {
+    console.log("deleted article")
+    }.bind(this))
+  } 
 
   
 

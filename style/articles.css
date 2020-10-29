@@ -1,0 +1,73 @@
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+border-color: rgb(45, 57, 28);
+min-height: 100vh;
+margin-left: -15rem;
+-webkit-transition: margin .25s ease-out;
+-moz-transition: margin .25s ease-out;
+-o-transition: margin .25s ease-out;
+transition: margin .25s ease-out;
+
+}
+
+#sidebar-wrapper .sidebar-heading {
+padding: 0.875rem 1.25rem;
+font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+width: 15rem;
+}
+
+#page-content-wrapper {
+min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+margin-left: 0;
+}
+
+.p{
+color: cornsilk;
+}
+
+.h1{
+color: cornsilk !important;
+}
+
+@media (min-width: 768px) {
+#sidebar-wrapper {
+margin-left: 0;
+}
+
+#page-content-wrapper {
+min-width: 0;
+width: 100%;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+margin-left: -15rem;
+}
+
+.card{
+background-color: rgb(28, 28, 28);
+color: rgb(167, 167, 167);
+}
+
+
+
+/* Schermi grandi o ad alta risoluzione */
+@media all and (max-width: 1690px) { }
+/* Schermi Desktop o Portatili */
+@media all and (min-width: 1280px) and (max-width: 1689px) {  }
+/* Tablet in modalità orizzontale */
+@media all and (min-width: 737px) and (max-width: 1279px) { }
+/* Tablet in modalità verticale */
+@media all and (min-width: 481px) and (max-width: 736px) {  }
+/* Smartphone o piccoli Tablet */
+@media all and (max-width: 480px) {  }
+
+}

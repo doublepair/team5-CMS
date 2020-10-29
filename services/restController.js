@@ -23,4 +23,16 @@ class RestController{
                 success: onSuccess
             })
         }
+
+
+        delete(url, data, onSuccess, onError) {
+            $.delete({
+                type: "DELETE",
+                url: url,
+                success: onSuccess,
+                dataType: 'json'
+            });
+        }
+
+        
     }
