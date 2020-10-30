@@ -1,43 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--INSERT TAB ICON-->
-    <link rel="icon" href="..."> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--INSERT TAB ICON
+    <link rel="icon" href="..."> -->
 
-    <title>Nome blog</title>
+  <title>Control Panel</title>
 
-    <!--BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!--BOOTSTRAP CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!--INTERNAL CSS-->
+  <!--INTERNAL CSS-->
+  <style>
+    #wrapper {
+      overflow-x: hidden;
+    }
 
+    #sidebar-wrapper {
+      border-color: rgb(45, 57, 28);
+      min-height: 100vh;
+      margin-left: -15rem;
+      -webkit-transition: margin .25s ease-out;
+      -moz-transition: margin .25s ease-out;
+      -o-transition: margin .25s ease-out;
+      transition: margin .25s ease-out;
+
+    }
+
+    #sidebar-wrapper .sidebar-heading {
+      padding: 0.875rem 1.25rem;
+      font-size: 1.2rem;
+    }
+
+    #sidebar-wrapper .list-group {
+      width: 15rem;
+    }
+
+    #page-content-wrapper {
+      min-width: 100vw;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: 0;
+    }
+
+    .p {
+      color: cornsilk;
+    }
+
+    .h1 {
+      color: cornsilk !important;
+    }
+
+    @media (min-width: 768px) {
+      #sidebar-wrapper {
+        margin-left: 0;
+      }
+
+      #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+      }
+
+      #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+      }
+
+      .card{
+      background-color: rgb(28, 28, 28);
+      color: rgb(167, 167, 167);
+    }
+
+    }
+  </style>
 </head>
 
 <header>
-    
+  <!--NAVBAR-->
+  <nav class="navbar navbar" style="background-color: rgb(28, 28, 28); ">
+    <button class="btn btn-primary" id="menu-toggle"
+      style="background-color:rgb(23, 212, 190); color: rgb(19, 19, 19);">
+      <i class="fas fa-align-left"></i>
+      <span>Admin</span>
+    </button>
+    <span class="navbar-brand mb-0 h1" style="color: rgb(195, 195, 195);">Control Panel</span>
+  </nav>
 </header>
 
 
-<body>
 
-    
 
-    <!--IL PANNELLO DI CONTROLLO STA FACENDO UNA SEDUTA DALL'ESTETISTA-->
-    
+<body style="background-color: rgb(19, 19, 19);">
+
+
+
+
+
+
+
+
+
+  <div class="d-flex" id="wrapper">
+
+
+    <!-- Sidebar -->
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading" style="color: rgb(178, 123, 246);">Control Panel</div>
+      <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action bg-dark" style="color:paleturquoise">Dashboard</a>
+            <a href="articles.html" class="list-group-item list-group-item-action bg-dark" style="color:rgb(23, 212, 190);">Articles</a>
+            <a href="comments.html" class="list-group-item list-group-item-action bg-dark" style="color:rgb(23, 212, 190);">Comments</a>
+            <a href="info.html" class="list-group-item list-group-item-action bg-dark" style="color:rgb(23, 212, 190);">Info</a>
+      </div>
+    </div>
+
+
+    <!-- /#sidebar-wrapper -->
+
+    <!--CONTENT-->
+    <div id="page-content-wrapper">
+
+      <div class="container-fluid">
+
+        <h1>Il design è tutto da rifare...</h1>
+
+
+
+        <div class="row" id="articlesRow">
+
+
+
+
+          <!--VECCHIE CARD INIZIO
+              <div class="col-md-12 col-sm-6 px-2 my-1" id="articleContainer" style="display: none;">
       
+                  <div class="card text-white bg-dark mb-3" id="first-article">
+      
+                      <header class="card-header">
+                        
+                      </header>
+                    
+                     <img class="card-img-top" src="..." alt="Card image cap"> 
+      
+                      <article class="card-body">
+                        <a href="#" class="card-link" id="editArticle">edit</a>
+                          <h5 class="card-title"></h5>
+                          <p class="card-text">
+                          </p>
+      
+                      </article>
+                      <footer class="p-2 text-right">
 
-    <!--POPPER, JQUERY, BOOTSTRAP JS-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                          <ul class="list-group list-group-flush comments-container">
 
-    <!--INTERNAL SCRIPTS-->
+                            <li class="list-group-item">Comment text</li>
+  
+                            <li class="list-group-item">Comment text</li>
+  
+                          </ul>
+                          </div> 
 
-    <script src="js/_main.js"></script>
+                      </footer>
+                  </div>
+              </div>
+
+                VECCHIE CARD FINE
+            -->
+
+
+
+
+
+          <!--NUMERO DI ARTICOLI-->
+
+
+
+
+
+          <!--NUMERO DI COMMENTI-->
+
+
+
+
+          <!--NUOVA CARD ARTICOLI AHAHAHSDHASDA LOL -->
+          <div class="col-md-12 col-sm-6 px-2 my-1" id="articleContainer" style="display: none;">
+
+            <div class="card mb-3" id="first-article">
+
+              <div class="edit-button">
+                <button type="button" class="btn btn-primary" id="editMode" data-toggle="modal" data-target="#editArticleModal" style="float:right; background-color: rgb(23, 212, 190); color:rgb(28, 28, 28);">
+                  Edit
+                </button>
+              </div>
+
+              <h1>
+              <header class="card-header">
+                <!--titolo articolo-->
+              </header></h1>
+
+              
+              <img class="card-img-top" src="./contents/img/bergamo.jpg" alt="Card image cap" width="300px" height="190px">
+
+              
+              <article class="card-body">
+                
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                </p>
+
+              </article>
+              <footer class="p-2 text-right" id="footer-article-card">
+
+                <ul class="list-group list-group-flush comments-container">
+
+                  <li class="list-group-item">Comment text</li>
+
+                  <li class="list-group-item">Comment text</li>
+
+                </ul>
+            </div>
+
+            </footer>
+          </div>
+        </div>
+        <!--NUOVA CARD ARTICOLI FINE-->
+
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+
+  <!--Edit article modal-->
+    <div class="modal fade" id="editArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <!--POPPER, JQUERY, BOOTSTRAP JS-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+
+  <!--OTHER SCRIPTS-->
+  <script type="text/javascript" src="./models/Article.js"></script>
+  <script type="text/javascript" src="./models/Comment.js"></script>
+  <script type="text/javascript" src="./services/restController.js"></script>
+  <script type="text/javascript" src="./controllers/index.js"></script>
+  <script type="text/javascript" src="./js/_main.js"></script>
+
+
+  <!--INTERNAL SCRIPTS-->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
 
 </body>
+
+
+<footer>
+  <hr style="margin-top: 1rem; margin-bottom: 1rem; border: 0; border-top: 2px solid rgba(195, 195, 195, 0.1);">
+  <br>
+  <h4 style="text-align: center; color:rgb(195, 195, 195); font-family: Arial, Helvetica, sans-serif;">CMS | 2020</h4>
+</footer>
 
 
 </html>
