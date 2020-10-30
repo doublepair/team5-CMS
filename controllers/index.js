@@ -1,5 +1,12 @@
 console.log("loaded script index");
-express.static(__dirname + './contents');
+
+var express = require('express'),
+    app = express(),
+    port = process.env.PORT || 3001,
+    path = require('path')
+
+    app.listen(port);
+
 class ArticleController {
   constructor() {
     this.articles = [];

@@ -1,0 +1,26 @@
+{
+  "name": "team5cms",
+  "version": "1.0.0",
+  "description": "\"cms for blog\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilCodiceDelloZio/team5-CMS.git"
+  },
+  "author": "yaros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilCodiceDelloZio/team5-CMS/issues"
+  },
+  "homepage": "https://github.com/ilCodiceDelloZio/team5-CMS#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
