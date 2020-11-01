@@ -47,11 +47,24 @@ class ArticleController {
     articleContainer.attr("id", "");
     articleContainer.addClass("class", "articleContainer");
 
-    var articleTitle = articleContainer.find(".card-header");
+    var articleAuthor = articleContainer.find("#card-author")
+    var articleTitle = articleContainer.find(".card-title");
     var articleBody = articleContainer.find(".card-text");
+    var articleDate = articleContainer.find("#card-date");
+    var articleTag = articleContainer.find("#card-tag");
+
+    //var articlesCommentContainer = articleContainer.find(".comments-container")
+
 
     articleTitle.html(article.title);
     articleBody.html(article.body);
+    articleAuthor.html(article.author);
+    articleDate.html(article.Created_date);
+    articleTag.html("tags: " + article.tag); //prendere come array
+
+
+
+    //articlesCommentContainer.html(article.comments);
 
     $("#articlesRow").append(articleContainer);
   }
@@ -78,6 +91,8 @@ class ArticleController {
 //         }.bind(this) 
 //     )
 // }
+
+
   
 
   getArticles() {
