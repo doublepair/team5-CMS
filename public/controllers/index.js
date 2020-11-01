@@ -6,7 +6,9 @@ class ArticleController {
   constructor() {
     this.articles = [];
     this.restController = new RestController();
-    //UI
+    
+
+
     this.articlesContainer;
     this.articleContainer;
 
@@ -31,7 +33,7 @@ class ArticleController {
         this.articleContainer = $("#articleContainer");
         this.articleEditor = $("#editArticle");
         this.getArticles();
-        this.getNumArticles();
+        //this.getNumArticles();
         this.getComments();
         
       }.bind(this)
@@ -55,35 +57,36 @@ class ArticleController {
   }
 
   
-  getNumArticles(){
-    this.restController.get(
-        "http://localhost:3000/articles",
-        function (data, status, xhr){
-          var publicArticles = 0;
-          var featuredArticles = 0; 
-          //draft articles
-          for (var id in data){
-              var article = data[id];
-              if(article.ispublic == true){
-                  if(article.featuredArticles == false){
-                      publicArticles++;
-                  }
-                  else{publicArticles++; featuredArticles++}
-              }
-          }
-          console.log(articlesCounter);
-          return articlesCounter;
-        }.bind(this) 
-    )
-}
+//   getNumArticles(){
+//     this.restController.get(
+//         "https://team5blogbackend.herokuapp.com/articles/",
+//         function (data, status, xhr){
+//           var publicArticles = 0;
+//           var featuredArticles = 0; 
+//           //draft articles
+//           for (var id in data){
+//               var article = data[id];
+//               if(article.ispublic == true){
+//                   if(article.featuredArticles == false){
+//                       publicArticles++;
+//                   }
+//                   else{publicArticles++; featuredArticles++}
+//               }
+//           }
+//           console.log(articlesCounter);
+//           return articlesCounter;
+//         }.bind(this) 
+//     )
+// }
   
 
   getArticles() {
     this.restController.get(
-      "http://localhost:3000/articles",
+      //"https://team5blogbackend.herokuapp.com/articles/",
+      "http://localhost:3000/articles/",
       function (data, status, xhr) {
         for (var id in data) {
-            //volevo mettere un conta articoli così da mostrarne il numero in dashboard
+            
           var article = data[id];
           article.id = id;
           console.log(article);
@@ -98,7 +101,10 @@ class ArticleController {
   }
 
   deleteArticle() {
-    this.restController.delete(`http://localhost:3000/articles/:articleId`, function () {
+    this.restController.delete(
+      //`https://team5blogbackend.herokuapp.com/articles/:articleId`,
+      "http://localhost:3000/articles/",
+       function () {
     console.log("deleted article")
     }.bind(this))
   } 
@@ -128,12 +134,12 @@ class ArticleController {
 
   getComments(){
       this.restController.get(
-          "http://localhost:3000/comments/5f8d91566386621e7aa7cc4d",
-          //"http://localhost:3000/articles/comments/",
+          //"https://team5blogbackend.herokuapp.com/comments/",
+          "http://localhost:3000/comments/5f899c12bc8d202b4043ebb5" ,
           function (data, status, xhr) {
                 for (var id in data){
                     var comment = data[id];
-                    comment.id = id;
+                    //comment.id = id;
                     console.log(comment)
                     this.createCommentUI(comment);
                 }

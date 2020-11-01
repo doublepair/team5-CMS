@@ -24,6 +24,15 @@ class RestController{
             })
         }
 
+        patch(url, data, onSuccess, onError){
+            $.patch({
+                type: "PATCH", 
+                url: url,
+                data: JSON.stringify(data), 
+                contentTupe: "json",
+                success: onSuccess
+            })
+        }
 
         delete(url, data, onSuccess, onError) {
             $.delete({
