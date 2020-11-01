@@ -1,11 +1,246 @@
+<!--editor di testo per articoli (update)-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--INSERT TAB ICON
+    <link rel="icon" href="..."> -->
+
+    <title>Article Editor</title>
+
+    <!--BOOTSTRAP CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--Glyphicons
+    <link rel="stylesheet" href="glyphicons/glyphicons.css">-->
+
+    <!--INTERNAL CSS-->
+    <style>
+         #wrapper {
+            overflow-x: hidden;
+        }
+
+    #sidebar-wrapper {
+    border-color: rgb(45, 57, 28);
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+
+    }
+
+    #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    }
+
+    #sidebar-wrapper .list-group {
+    width: 15rem;
+    }
+
+    #page-content-wrapper {
+    min-width: 100vw;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+    }
+
+    .p{
+      color: cornsilk;
+    }
+
+    .h1{
+      color: cornsilk !important;
+    }
+
+    @media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+    }
+    </style>
 </head>
-<body>
+
+<header>
+    <!--NAVBAR-->
+    <nav class="navbar navbar" style="background-color: rgb(28, 28, 28); ">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:rgb(23, 212, 190); color: rgb(19, 19, 19);">
+            <i class="fas fa-align-left"></i>
+            <span>Admin</span>
+        </button>
+        <span class="navbar-brand mb-0 h1" style="color: rgb(195, 195, 195);">Control Panel</span>
+      </nav>
+</header>
+
+
+
+
+<body style="background-color: rgb(19, 19, 19);">
+
+    <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Allegati (in aggiornamento)</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+
+
+
+
+            <h4><div class="form-group" id="input-new-article-author">
+                <label for="inputNewAuthor">Autore</label>
+                <input type="text" class="form-control" id="inputNewAuthor" aria-describedby="authorHelp" placeholder="Autore">
+                <!-- per il testo mutato sotto, comodo<small id="emailHelp" class="form-text text-muted"></small>-->
+            </div></h4>
+            <hr>
+
+            <h4><div class="form-group" id="input-new-article-title">
+                <label for="inputNewTitle">Titolo</label>
+                <input type="text" class="form-control" id="inputNewTitle" aria-describedby="titleHelp" placeholder="Titolo dell'articolo">
+                <!-- per il testo mutato sotto, comodo<small id="emailHelp" class="form-text text-muted"></small>-->
+            </div></h4>
+        
+
+            <h4><div class="form-group" id="input-new-article-subtitle">
+                <label for="inputNewSubtitle">Sottotitolo</label>
+                <input type="text" class="form-control" id="inputNewSubtitle" aria-describedby="subtitleHelp" placeholder="Sottotitolo dell'articolo">
+                <!-- per il testo mutato sotto, comodo<small id="emailHelp" class="form-text text-muted"></small>-->
+            </div></h4>
+
+            <hr>
+
+            <!--prova ad aggiungere la possibilità di scrivere testo in grassetto, italic ecc-->
+            <h4><div class="form-group" id="input-new-article-body">
+                <label for="inputNewbody">Contenuto</label>
+                <input type="text" class="col-lg-x form-control" id="inputNewbody" aria-describedby="bodyHelp" placeholder="Contenuto dell'articolo">
+                <!-- per il testo mutato sotto, comodo<small id="emailHelp" class="form-text text-muted"></small>-->
+            </div></h4>
+
+
+            <h4><div class="form-group" id="input-new-article-tag">
+                <label for="inputNewbody">Tag</label>
+                <input type="text" class="col-lg-x form-control" id="inputNewbody" aria-describedby="bodyHelp" placeholder="Tag">
+                <!-- per il testo mutato sotto, comodo<small id="emailHelp" class="form-text text-muted"></small>-->
+            </div></h4>
+
+            
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="publicCheck">
+                <label class="form-check-label" for="publicCheck">
+                  Pubblico
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="publicCheck">
+                <label class="form-check-label" for="publicCheck">
+                  Featured
+                </label>
+              </div>
+        
+        
+            
+          <p class="card-text">
+            
+          </p>
+          
+          <button type="button" class="btn btn-danger" id="confirmDeleteArticle" data-toggle="modal" data-target="#exampleModal2">
+            Elimina
+          </button>
+
+          <a href="#" class="btn btn-primary" id="newArticleAddBtn">+ Aggiungi</a>
+        </div>
+      </div>
+
+
+
+      <!-- are you sure? Modal -->
     
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sei sicuro di voler abbandonare la pagina?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            Le modifiche apportate non verranno salvate
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+            <a href="index.html" type="button" class="btn btn-primary" role="button">Conferma</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+
+    <!--confirm delete article modal-->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Elimina l'articolo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                Sicuro di voler eliminare l'articolo? L'azione non può essere annullata.
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-danger" id="deleteArticle">Elimina</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <!--POPPER, JQUERY, BOOTSTRAP JS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!--OTHER SCRIPTS-->
+    <script type="text/javascript" src="./models/Article.js"></script>
+    <script type="text/javascript" src="./models/Comment.js"></script>
+    <script type="text/javascript" src="./services/restController.js"></script>
+    <script type="text/javascript" src="./controllers/index.js"></script>
+    <script type="text/javascript" src="./js/_main.js"></script>
+ 
+
 </body>
+
+
+  <footer>
+    <hr style="margin-top: 1rem; margin-bottom: 1rem; border: 0; border-top: 2px solid rgba(195, 195, 195, 0.1);">
+    <br>
+    <h4 style="text-align: center; color:rgb(195, 195, 195); font-family: Arial, Helvetica, sans-serif;">CMS | 2020</h4>
+</footer>
+
+
 </html>
